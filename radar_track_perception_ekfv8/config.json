@@ -1,0 +1,42 @@
+{
+  "_comment_global": "全局路径配置",
+  "radar_csv": "/mnt/hgfs/J-2/work/1014data/wj/2025-10-16-09-44-48/1/radar.csv",
+  "lidar_dir": "/mnt/hgfs/J-2/work/1014data/wj/2025-10-16-09-44-48/1/lidar_frames/",
+  "cam_dir": "..",
+  "models_dir": "../models",
+  "radar_extrinsic": "",
+  "lidar_extrinsic": "",
+  "export_csv": "../data/detected_results.csv",
+
+  "_comment_roi": "检测区域限制",
+  "det_x_max": 100.0,  "_desc_det_x": "X轴最大检测距离(米)",
+  "det_y_max": 5.0,    "_desc_det_y": "Y轴最大检测距离(米)",
+
+  "_comment_track": "检测与追踪逻辑参数",
+  "prob_thres": 0.5,   "_desc_prob": "判定为障碍物的概率阈值",
+  "thr_high": 0.8,     "_desc_th_h": "高置信度阈值(仅用于显示区分)",
+  "thr_low": 0.6,      "_desc_th_l": "低置信度阈值",
+  "min_detects": 2,    "_desc_min": "最少连续检测帧数(v3版本未使用此参数)",
+  "max_misses": 6,     "_desc_miss": "最大丢失帧数，超过则丢弃轨迹",
+  "orientation_in_deg": true, "_desc_deg": "输入角度是否为度数",
+  "dyn_prop": "trackType",    "_desc_dyn": "特征字段来源",
+
+  "_comment_soft_ego": " 软车速估算 (加权滑动窗口法)",
+  "enable_soft_ego_est": false, "_desc_switch": "开关：是否开启车速估算与背景过滤",
+  
+  "ego_rcs_min": -10.0,      "_desc_e_rcs": "必须设极低！包含微弱背景点",
+  "ego_length_min": 0.0,     "_desc_e_len": "必须设为0！包含短点",
+  "ego_speed_abs_max": 10.0, "_desc_e_max": "允许参与估算的最大相对速度范围",
+  "ego_min_candidates": 2,   "_desc_e_cnt": "【启动门槛】最少需要2个点才启动过滤，否则跳过过滤",
+  
+  "ego_bin_width": 0.5,      "_desc_e_bin": "速度聚类窗口宽度",
+  "ego_weight_rcs": 0.5,     "_desc_e_w_r": "RCS权重",
+  "ego_weight_len": 3.0,     "_desc_e_w_l": "长度权重",
+  
+  "ego_alpha_mean": 0.7,     "_desc_e_alp": "车速平滑系数",
+  "ego_decay": 0.99,         "_desc_e_dec": "车速衰减系数",
+
+  "_comment_static_filter": "基于估算车速的静态过滤",
+  "static_speed_thres": 0.6, "_desc_s_spd": "绝对速度小于0.6m/s视为静止背景(保护慢速目标)",
+  "static_rcs_thres": -100.0,"_desc_s_rcs": "只要是静止的，不管RCS多少全过滤"
+}
